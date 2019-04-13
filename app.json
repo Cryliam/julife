@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/shopping/shopping"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "嘉院百事通",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6C6C6C",
+    "selectedColor": "#FF0000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/image/index0.png",
+        "selectedIconPath": "/image/index1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/image/mine0.png",
+        "selectedIconPath": "/image/mine1.png"
+      }
+    ]
+  }
+}
