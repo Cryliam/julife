@@ -1,0 +1,55 @@
+<!--pages/shopping/shopping.wxml-->
+
+
+<view class="navbar">
+  <view class='shopnav' bindtap='switch' data-con='1'>超市购物</view>
+  <view class='canteennav' bindtap='switch' data-con='2'>食堂带饭</view>
+</view>
+<view class='container1' style='display:{{display1}}'>
+<!-- 商品分类区域-->
+<view class="left">
+  <view wx:for="{{tags}}" >
+   <view bindtap='showcmd' data-tag="{{item.tag}}" data-index="{{index}}" 
+      wx:if="{{index==selected}}" style='background-color:#D2E9FF' class="tagarea">
+    {{item.name}}
+   </view>
+  <view bindtap='showcmd' data-tag="{{item.tag}}" data-index="{{index}}"
+    wx:else   class="tagarea">
+   {{item.name}}
+  </view>
+   
+  </view>
+  </view>
+
+<!-- 商品显示区域-->
+<scroll-view class="right" scroll-y>
+<view  wx:for="{{cmdlist}}" class="item">
+  <image src='/cmdpic/6002.png' class="cmdpic"></image>
+  <view class="cmdname">{{item.cmdname}}</view>
+  <image class="addBtn" src='/image/add.png' bindtap='addCmd' data-cmdid="{{item.cmdid}}"
+    data-cmdname="{{item.cmdname}}">
+  </image>
+</view>
+</scroll-view>
+
+<!-- 购物车区域-->
+<view class="bottom">
+<view class='cartname'>购物车</view>
+<scroll-view class="cartItemArea" scroll-y>
+<view class="cartitem" wx:for="{{cart}}">
+  {{item.cmdName}}X{{item.num}}
+</view>
+</scroll-view>
+<view class="sub" bindtap='submit'>提交</view>
+</view>
+</view>
+
+
+
+
+
+<!----------------------------------------------------->
+
+<view class="container2" style='display:{{display2}}'>
+  <view>食堂带饭功能预留</view>
+</view>

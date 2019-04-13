@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+<swiper  indicator-dots='true'>
+
+  <swiper-item class='item1'>
+    <view></view>
+  </swiper-item>
+
+  <swiper-item class='item2'>
+    <view></view>
+  </swiper-item>
+
+  <swiper-item class='item3'>
+    <view></view>
+  </swiper-item>
+</swiper>
+
+<!-- 跑腿-->
+<view class="icon" bindtap='navto'>
+  <image class="img" src='/image/runnerIcon.png'></image>
+  <view class="title">跑腿服务</view>
+  <view class="text">{{text.text1}}</view>
+</view>
+
+
+<!-- 拼车-->
+<view class="icon">
+  <image class="img" src='/image/taxiIcon.png'></image>
+  <view class="title">拼车</view>
+  <view class="text">{{text.text2}}</view>
+</view>
+<!-- 失物招领-->
+<view class="icon">
+  <image class="img" src='/image/foundIcon.png'></image>
+  <view class="title">失物招领</view>
+  <view class="text">{{text.text3}}</view>
+</view>
+<!-- 二手 -->
+<view class="icon">
+  <image class="img" src='/image/tradeIcon.png'></image>
+  <view class="title">二手交易</view>
+  <view class="text">{{text.text4}}</view>
+</view>
+</view>
