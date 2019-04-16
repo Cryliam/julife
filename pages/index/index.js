@@ -14,7 +14,8 @@ Page({
       text2: "找到一起打车的小伙伴",
       text3: "寻找你遗失的物品，或发布你找到的物品",
       text4: "发现有价值的宝贝，或转手不需要的宝贝",
-    }
+    },
+    pageUrl:'/pages'
   },
   //事件处理函数
   bindViewTap: function() {
@@ -62,9 +63,9 @@ Page({
 
 
   navto: function (event) {
-    var tag = event.currentTarget.dataset.tag;
+    var page = event.currentTarget.dataset.page;
     wx.navigateTo({
-      url: '/pages/shopping/shopping?tag=6',
+      url: this.data.pageUrl+'/'+page+'/'+page,
     })
   }
 
