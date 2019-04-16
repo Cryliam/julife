@@ -1,0 +1,31 @@
+<!--pages/mine/my_run/my_run.wxml-->
+<view class="container">
+<view class="title">我的订单</view>
+<swiper indicator-dots='true'>
+  <swiper-item wx:for="{{myList}}" class='cms'>
+      <view class="head">订单编号</view>
+      <view class="cms_id,btm">{{item.cmsId}}</view>
+
+      <view class="cms_title.btm">{{item.title}}</view>
+
+      <view class="head">委托详情</view>
+      <view class="cms_text,btm"><text>{{item.text}}</text></view>
+
+      <view class="head">创建时间</view>
+      <view class="cms_createtime,btm">{{item.createTime}}</view>
+
+      <view class="cms_status" wx:if="{{item.status==0}}">
+        订单状态：未接受
+      </view>
+      <view class="cms_status" wx:elif="{{item.status==-1}}">
+        <view>订单已接受，接单人：{{item.runnerName}}</view>
+        <view>联系：{{item.runnerTel}}</view>
+      </view>
+      <view class="cms_status" wx:elif="{{item.status==1}}">
+        <view class="runner_name">已完成，接单人：{{item.runnerName}}</view>
+        <view class="runner_tel">联系：{{item.runnerTel}}</view>
+        <view class="cms_finishtime">完成时间：{{item.finishTime}}</view>
+      </view>
+   </swiper-item>
+</swiper>
+</view>
