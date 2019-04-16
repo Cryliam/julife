@@ -5,21 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tag: "1",
+    tag: "6",
     selected:0,
     cmdlist: [],
     display1:'flex',
     display2:'none',
+    color1:'red',
+    color2:'black',
     tags: [
       {"tag":"6","name":"饮料酒水"},
       {"tag":"1","name":"面包饼干"},
       {"tag":"2","name":"膨化食品"},
       {"tag":"3","name":"生活用品"},
-      {"tag":"4","name":"洗漱用品"} ,
+      {"tag":"4","name":"洗漱用品"},
       {"tag":"5","name":"文具笔记"},
     ],
-    cart:[]
-
+    cart:[],
+    imgUrl:'http://localhost:7070/julife/images/',
+    url:'http://localhost:7070/julife/'
 
   },
 
@@ -28,14 +31,11 @@ Page({
    */
   onLoad: function (options) {
     var newthis = this;
-    this.setData({
-      tag: options.tag,
-    })
 
     wx.request({
-      url: 'http://localhost:8080/julife/GetCmd',
+      url: newthis.data.url+'GetCmd',
       data: {
-        tag: this.data.tag
+        tag: newthis.data.tag
       },
       success: function (res) {
         newthis.setData({
@@ -104,7 +104,7 @@ Page({
 
 
     wx.request({
-      url: 'http://localhost:8080/julife/GetCmd',
+      url: newthis.data.url+'GetCmd',
       data: {
         tag: newtag
       },
@@ -123,14 +123,18 @@ Page({
     if(con=='2'){
       this.setData({
         display1:'none',
-        display2:'flex'
+        display2:'flex',
+        color1:'black',
+        color2:'red'
       })
     }
 
     else if(con=='1'){
       this.setData({
         display1: 'flex',
-        display2: 'none'
+        display2: 'none',
+        color1:'red',
+        color2:'black'
       })
     }
   },
@@ -154,6 +158,33 @@ Page({
     }
     newthis.setData({
       cart:newCart
+    })
+  },
+
+  submit:function(){
+    var newthis=this;
+    var app=getApp();
+    var user_id=wx.getStorageSync('userid');
+    var cart=newthis.data.cart;
+    var newCart=new Array;
+    var text="";
+    for(var i=0;i<cart.length;i++){
+      var cmdName=cart[i].cmdName;
+      var num=cart[i].num+"";
+      text =text+cmdName+"X"+num+"\n"
+    }
+    wx.request({
+      url: newthis.data.url+'AddRequest',
+      method:'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' 
+      },
+      data:{
+        text:text,
+        userId:user_id,
+        userName: app.globalData.userInfo.nickName,
+        type:1
+      },
     })
   }
 })
