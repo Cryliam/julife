@@ -16,7 +16,7 @@
 </swiper>
 
 <!-- 跑腿-->
-<view class="icon" bindtap='navto'>
+<view class="icon" bindtap='navto' data-page='shopping'>
   <image class="img" src='/image/runnerIcon.png'></image>
   <view class="title">跑腿服务</view>
   <view class="text">{{text.text1}}</view>
@@ -24,7 +24,7 @@
 
 
 <!-- 拼车-->
-<view class="icon">
+<view class="icon" bindtap='navto' data-page='taxi'>
   <image class="img" src='/image/taxiIcon.png'></image>
   <view class="title">拼车</view>
   <view class="text">{{text.text2}}</view>
