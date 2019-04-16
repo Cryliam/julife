@@ -1,2 +1,11 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='container'>
+<!-- UserInfo Area-->
+<view class="userinfo_area">
+<image src='{{avatarUrl}}' class="avatar"></image>
+<view class="nickName">{{nickName}}</view>
+</view>
+
+
+<view class="my_run" bindtap='navto' data-page='my_run'>我的跑腿订单</view>
+</view>
