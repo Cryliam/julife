@@ -1,0 +1,15 @@
+<!--pages/taxi/taxi.wxml-->
+<view class="navbar">
+  <view class='navtext' bindtap='switch' data-con='1'
+    style='color:{{color1}}'>发现</view>
+  <view class='navtext' bindtap='switch' data-con='2'
+    style='color:{{color2}}'>发起拼车</view>
+</view>
+
+<view class='container1' style='display:{{display1}}'>
+find
+</view>
+
+<view class='container2' style='display:{{display2}}'>
+add
+</view>

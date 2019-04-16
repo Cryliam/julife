@@ -1,0 +1,30 @@
+/* pages/taxi/taxi.wxss */
+page{
+  height: 100%;
+  width:100%;
+}
+.navbar{
+  display: flex;
+  float: left;
+  border-style: solid;
+  border-width: 2rpx;
+  width:99%;
+  height: 5%;
+  text-align: center;
+}
+.navtext{
+  width: 50%;
+  
+}
+
+.container1{
+  height: 90%;
+  width: 100%;
+}
+
+
+
+.container2{
+  height: 90%;
+  width: 100%;
+}
