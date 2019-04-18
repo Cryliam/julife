@@ -7,9 +7,71 @@
 </view>
 
 <view class='container1' style='display:{{display1}}'>
-find
+  <scroll-view scroll-y>
+
+  <view wx:for="{{list}}" class="item">
+    <view class="in" bindtap='showExtra' data-index='{{index}}'>
+
+    <view class="addrInfo">
+      <view class='aim'>前往：{{item.aim}}</view>
+      <view class='temp'>上车：{{item.temp}}</view>
+      <view class='number'>剩余可载：
+      <text wx:if="{{item.number==3}}" class='green'>{{item.number}}</text>
+      <text wx:elif="{{item.number==2}}" class='yellow'>{{item.number}}</text>
+      <text wx:elif="{{item.number==1}}" class='red'>{{item.number}}</text>
+      人</view>
+    </view>
+
+    <view class="userInfo">
+      <image class='avatar' src='{{item.requesterAvatar}}'></image>
+      <view class='name'>{{item.requesterName}}</view>
+      <view class="day">{{item.createDay}}</view>
+    </view>
+
+      <image class='gender'wx:if="{{item.requesterGender==1}}"src='/image/male.png'></image>
+      <image class='gender'wx:elif="{{item.requesterGender==2}}"src='/image/female.png'></image>
+    </view>
+
+
+
+
+    <view class="extra" style='display:{{displayExtra[index]}}'>
+
+     <view class='extraText' bindtap='' data-con='1'
+      style=''>接受</view>
+     <view class='extraText' bindtap='' data-con='2'
+      style='background-color:#F0F0F0'>私信（暂未开放）</view>
+   </view>
+
+  </view>
+
+  </scroll-view>
 </view>
 
+
 <view class='container2' style='display:{{display2}}'>
-add
+  <form bindsubmit='submit'>
+  <view> 
+    <image src='/image/blue.png' class='circle'></image>
+    <input name='aim' placeholder='输入目的地'/>
+  </view>
+  
+  <view>
+    <image src='/image/yellow.png' class='circle'></image>
+    <input name='temp' placeholder='输入上车地点'/>
+  </view>
+  
+  <view>
+    <image src='/image/green.png' class='circle'></image>
+    <input name='number' placeholder='输入上车人数'/>
+  </view>
+
+  <view>
+    <image src='/image/red.png' class='circle'></image>
+    <input name='tel' placeholder='输入联系方式（可选）'/>
+  </view>
+    
+  <button form-type='submit' class='btn'>提交</button>
+  <button form-type='reset' class='btn'>重置</button>
+  </form>
 </view>
